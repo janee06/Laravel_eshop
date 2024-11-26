@@ -12,23 +12,25 @@
 
     <!-- Why Choose Us Section -->
     <div class="py-10 text-center bg-gray-100">
-        <h2 class="text-3xl font-semibold">Proč nakupovat u nás?</h2>
-        <p class="mt-4 text-lg text-gray-700">Nabízíme nejlepší produkty za nejlepší ceny!</p>
-        <div class="mt-6 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <div class="bg-white shadow-md rounded-lg p-6 max-w-xs mx-auto">
-                <h3 class="text-lg font-bold">Rychlá Doprava</h3>
-                <p class="mt-2">Zaručujeme rychlé dodání vašich objednávek.</p>
+        <h2 class="text-4xl font-extrabold text-gray-800">Proč nakupovat u nás?</h2>
+        <p class="mt-4 text-lg text-gray-600">Nabízíme nejlepší produkty za nejlepší ceny!</p>
+        <div class="mt-8 flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-8">
+            <div class="bg-white shadow-lg rounded-lg p-6 max-w-xs mx-auto transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold text-gray-900">Rychlá Doprava</h3>
+                <p class="mt-2 text-gray-700">Zaručujeme rychlé dodání vašich objednávek.</p>
             </div>
-            <div class="bg-white shadow-md rounded-lg p-6 max-w-xs mx-auto">
-                <h3 class="text-lg font-bold">Kvalitní Produkty</h3>
-                <p class="mt-2">Naše produkty procházejí důkladným výběrem kvality.</p>
+            <div class="bg-white shadow-lg rounded-lg p-6 max-w-xs mx-auto transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold text-gray-900">Kvalitní Produkty</h3>
+                <p class="mt-2 text-gray-700">Naše produkty procházejí důkladným výběrem kvality.</p>
             </div>
-            <div class="bg-white shadow-md rounded-lg p-6 max-w-xs mx-auto">
-                <h3 class="text-lg font-bold">Zákaznická Podpora</h3>
-                <p class="mt-2">Jsme tu pro vás, abychom zodpověděli všechny vaše dotazy.</p>
+            <div class="bg-white shadow-lg rounded-lg p-6 max-w-xs mx-auto transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold text-gray-900">Zákaznická Podpora</h3>
+                <p class="mt-2 text-gray-700">Jsme tu pro vás, abychom zodpověděli všechny vaše dotazy.</p>
             </div>
         </div>
     </div>
+    
+    
 
    <!-- Products Horizontal Scroll Section -->
 <div class="py-10">
