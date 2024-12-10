@@ -9,13 +9,16 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
 
+     // Method to show all products on the products index page
+   
+
     public function index()
     {
-        // Načte všechny produkty z databáze
-        $products = Product::all();
-
-        // Předá produkty do view
-        return view('products.index', compact('products'));
+         // Fetch all products from the database
+         $products = Product::all();
+ 
+         // Pass the products to the view named 'products.index'
+         return view('products.index', compact('products'));
     }
 
     /**
@@ -38,13 +41,19 @@ class ProductController extends Controller
      * Display the specified resource.
      */
       public function show($id)
-    {
-        // Načte produkt podle ID
-        $product = Product::findOrFail($id);
+            {
+                   $product = Product::findOrFail($id);
 
-        // Předá produkt do view
-        return view('products.show', compact('product'));
-    }
+                // Get related products (you can adjust the logic to suit your needs)
+                    $relatedProducts = Product::where('id', '!=', $product->id)
+                    ->inRandomOrder()
+                    ->take(10)
+                    ->get();
+
+
+                // Předá produkt do view
+                return view('products.show', compact('product','relatedProducts'));
+            }
     public function search(Request $request)
         {
             $query = $request->input('query');
