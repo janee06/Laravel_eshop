@@ -102,7 +102,7 @@
             });
         });
     </script>
-    @include('components.contact-form')
+    
 </body>
 </html>
 
