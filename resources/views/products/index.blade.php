@@ -2,6 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class=h-20></div>
     <div class="container py-10 mx-auto">
         <h1 class="text-3xl font-semibold text-center mb-8 text-white">Naše Produkty</h1>
 
@@ -53,7 +54,7 @@
                 }
             }
         </style>
-
+     
         <div class="product-grid">
             @foreach($products as $product)
                 <div class="product-card">
