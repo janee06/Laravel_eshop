@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
-    //
+    protected $fillable = [
+       'id','discount', 'name', 'email', 'address', 'phoneNumber'
+    ];
 }
+// jmeno a prijmeni, email, telefonni cislo, adresa,uzivatelske jmeno, heslo
