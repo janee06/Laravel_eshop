@@ -1,0 +1,9 @@
+@layer base {
+
+    @font-face {
+    font-family: ClashDisplay;
+    src: url("/fonts/ClashDisplay/ClashDisplay-Medium.ttf") format("truetype");
+}
+
+
+}
