@@ -6,10 +6,14 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FaqQuestionsController;
+use App\Http\Controllers\CartController;
 
 ini_set('max_execution_time', 120);
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -25,5 +29,8 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 Route::get('products/search', [ProductController::class, 'search'])->name('products.search');
 Route::get('/questions', [FaqQuestionsController::class, 'index'])->name('questions.index');
+
+use App\Http\Controllers\ReviewController;
+Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store')->middleware('auth');
 
 require __DIR__.'/auth.php';

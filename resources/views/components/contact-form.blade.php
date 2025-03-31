@@ -41,7 +41,7 @@
         <!-- Pravá část - Obrázek -->
         <div class="flex justify-center">
             <div class="w-80 h-80 bg-gray-200 rounded-xl shadow-lg flex items-center justify-center">
-                <img src="" alt="">
+            
                 <span class="text-gray-500 text-lg">Zde bude obrázek</span>
             </div>
         </div>

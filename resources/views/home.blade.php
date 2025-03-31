@@ -6,7 +6,7 @@
         <img src="https://imgs.search.brave.com/ko2Q7ZOGLlqvLvF_YRANMCfq0u33Z5RmFO9DCe4WCQw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS81/YTllZTY0MTZlOTBk/MjAwMDFiMjAwMzgv/NjI4OWYwYmZhOTIw/YTk1OGYyYjQxNmY3/X2JsYWNrLWdyYWRp/ZW50LnBuZw" 
              alt="Vítejte" class="absolute inset-0 w-full h-full object-cover brightness-75">
         <div class="relative text-center">
-            <h1 class="text-white text-5xl md:text-6xl font-bold">Vítejte na naší stránce!</h1>
+            <h1 class="text-white text-5xl md:text-6xl font-clashdisplay">Vítejte na naší stránce!</h1>
         </div>
     </div>
     @livewire('gallery')
