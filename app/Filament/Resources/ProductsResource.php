@@ -2,18 +2,15 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProductResource\Pages;
+use App\Filament\Resources\ProductsResource\Pages;
 use App\Models\Product;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\TextArea;
-use Filament\Forms\Components\FileUpload;
 
-class ProductResource extends Resource
+class ProductsResource extends Resource
 {
     protected static ?string $model = Product::class;
 
@@ -23,45 +20,40 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')
-                    ->label('Product Name')
+                Forms\Components\TextInput::make('name')
+                    ->label('Name')
                     ->required()
                     ->maxLength(255),
 
-                TextArea::make('description')
+                Forms\Components\TextArea::make('description')
                     ->label('Description')
                     ->required()
                     ->maxLength(1000),
 
-                TextInput::make('price')
+                Forms\Components\TextInput::make('price')
                     ->label('Price')
                     ->required()
                     ->numeric()
                     ->step(0.01)
                     ->helperText('Enter the product price'),
 
-                TextInput::make('sku')
+                Forms\Components\TextInput::make('in_stock')
+                    ->label('In Stock')
+                    ->required()
+                    ->numeric(),
+
+                Forms\Components\TextInput::make('sku')
                     ->label('SKU')
                     ->required()
                     ->maxLength(255),
 
-                TextInput::make('in_stock')
-                    ->label('In Stock')
-                    ->required(),
-
-                FileUpload::make('images')
-                    ->label('Product Images')
+                Forms\Components\FileUpload::make('photo')
+                    ->label('Photo')
                     ->image()
                     ->directory('gallery')
                     ->maxSize(5120)
-                    ->multiple()
-                    ->helperText('Upload one or more images for the product gallery')
-                    ->disk('public')
-                    ->columnSpan('full')
                     ->required()
-                    ->afterStateUpdated(function ($state, callable $set) {
-                        $set('images', $state); // Uloží cesty do JSON pole v modelu
-                    }),
+                    ->disk('public'),
             ]);
     }
 
@@ -69,32 +61,18 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
-                    ->label('Product Name'),
-                Tables\Columns\TextColumn::make('price')
-                    ->label('Price')
-                    ->money('usd'),
-                Tables\Columns\TextColumn::make('sku')
-                    ->label('SKU'),
-                Tables\Columns\BooleanColumn::make('in_stock')
-                    ->label('In Stock')
-                    ->trueColor('success')
-                    ->falseColor('danger'),
+                Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('price')->sortable(),
+                Tables\Columns\ImageColumn::make('photo'),
             ])
             ->filters([
-                Tables\Filters\SelectFilter::make('in_stock')
-                    ->options([
-                        '1' => 'In Stock',
-                        '0' => 'Out of Stock',
-                    ]),
+                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
@@ -102,8 +80,8 @@ class ProductResource extends Resource
     {
         return [
             'index' => Pages\ListProducts::route('/'),
-            'create' => Pages\CreateProduct::route('/create'),
-            'edit' => Pages\EditProduct::route('/{record}/edit'),
+            'create' => Pages\CreateProducts::route('/create'),
+            'edit' => Pages\EditProducts::route('/{record}/edit'),
         ];
     }
 }

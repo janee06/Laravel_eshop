@@ -1,48 +1,39 @@
-<div class="py-100 bg-white text-gray-800 text-center">
-    <h1 class="text-5xl font-extrabold">Kontaktujte nás</h1>
+<div class="py-20 text-center" style="background-color: #fff0f5; color: #c2185b;">
+    <h1 style="font-size: 3rem; font-weight: 800;">Kontaktujte nás</h1>
 
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center mt-12">
+    <div style="max-width: 80rem; margin: 3rem auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
         <!-- Levá část - Formulář -->
-        <div class="bg-gray-100 p-8 rounded-xl shadow-md">
-            <p class="text-gray-600 text-lg mb-6">Máte otázku? Zanechte nám zprávu a my se vám co nejdříve ozveme.</p>
+        <div style="background-color: #ffe4ec; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            <p style="color: #d6336c; font-size: 1.1rem; margin-bottom: 1.5rem;">Máte otázku? Zanechte nám zprávu a my se vám co nejdříve ozveme.</p>
 
-            <form action="#" method="POST" class="space-y-6">
+            <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
                 @csrf
 
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="relative">
-                        <input type="text" id="first_name" name="first_name" placeholder="Jméno"
-                            class="w-full border border-gray-300 focus:border-blue-500 outline-none bg-white p-3 text-lg rounded-md shadow-sm text-gray-800">
-                    </div>
-
-                    <div class="relative">
-                        <input type="text" id="last_name" name="last_name" placeholder="Příjmení"
-                            class="w-full border border-gray-300 focus:border-blue-500 outline-none bg-white p-3 text-lg rounded-md shadow-sm text-gray-800">
-                    </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <input type="text" name="first_name" placeholder="Jméno"
+                        style="padding: 0.75rem; font-size: 1rem; border: 1px solid #f9c7d9; border-radius: 0.5rem; background-color: #ffffff; color: #b95c7a;">
+                    <input type="text" name="last_name" placeholder="Příjmení"
+                        style="padding: 0.75rem; font-size: 1rem; border: 1px solid #f9c7d9; border-radius: 0.5rem; background-color: #ffffff; color: #b95c7a;">
                 </div>
 
-                <div class="relative">
-                    <input type="email" id="email" name="email" placeholder="E-mail"
-                        class="w-full border border-gray-300 focus:border-blue-500 outline-none bg-white p-3 text-lg rounded-md shadow-sm text-gray-800">
-                </div>
+                <input type="email" name="email" placeholder="E-mail"
+                    style="padding: 0.75rem; font-size: 1rem; border: 1px solid #f9c7d9; border-radius: 0.5rem; background-color: #ffffff; color: #b95c7a;">
 
-                <div class="relative">
-                    <textarea id="message" name="message" placeholder="Vaše zpráva"
-                        class="w-full border border-gray-300 focus:border-blue-500 outline-none bg-white p-3 text-lg rounded-md shadow-sm text-gray-800 h-24"></textarea>
-                </div>
+                <textarea name="message" placeholder="Vaše zpráva" rows="4"
+                    style="padding: 0.75rem; font-size: 1rem; border: 1px solid #f9c7d9; border-radius: 0.5rem; background-color: #ffffff; color: #b95c7a;"></textarea>
 
                 <button type="submit"
-                    class="w-full bg-blue-500 text-white font-semibold px-6 py-3 rounded-md shadow-md hover:bg-blue-600 transition duration-300">
+                    style="background-color: #ff69b4; color: white; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.5rem; border: none; cursor: pointer; transition: background-color 0.3s ease;">
                     Odeslat zprávu
                 </button>
             </form>
         </div>
 
         <!-- Pravá část - Obrázek -->
-        <div class="flex justify-center">
-            <div class="w-80 h-80 bg-gray-200 rounded-xl shadow-lg flex items-center justify-center">
-            
-                <span class="text-gray-500 text-lg">Zde bude obrázek</span>
+        <div style="display: flex; justify-content: center;">
+            <div style="width: 20rem; height: 20rem; background-color: #ffd3e0; border-radius: 1rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); display: flex; align-items: center; justify-content: center;">
+            <img src="{{ asset('/kocicka.png') }}" alt="Hello Kitty s megafonem"
+            style="width: 100%; height: 100%; object-fit: contain; border-radius: 1rem;">
             </div>
         </div>
     </div>
