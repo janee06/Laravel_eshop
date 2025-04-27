@@ -3,7 +3,7 @@
 @section('content')
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -113,9 +113,9 @@
     <!-- Products -->
     <div class="section-softwhite py-16">
         <h2 class="text-center text-darkpink" style="font-size: 2.5rem;">Naše květiny</h2>
-        <div style="display: flex; overflow-x: auto; gap: 1.5rem; padding: 2rem;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; padding: 2rem;">
             @foreach($products as $product)
-                <div class="card" style="flex-shrink: 0;">
+                <div class="card">
                     <img src="{{ $product->image_url }}" alt="{{ $product->name }}" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
                     <h3 class="text-darkpink" style="margin-top: 1rem;">{{ $product->name }}</h3>
                     <p style="font-size: 0.9rem;">{{ $product->description }}</p>
@@ -124,12 +124,19 @@
                 </div>
             @endforeach
         </div>
+
+        <!-- Pagination -->
+        <div style="margin-top: 2rem; display: flex; justify-content: center;">
+            {{ $products->links() }}
+        </div>
     </div>
 
     <!-- Contact -->
     <div class="section-lightpink py-16 pb-32" style="display: flex; justify-content: center;">
         <div style="max-width: 500px; width: 100%;">
             <h2 class="text-center text-darkpink" style="font-size: 2.5rem;">Kontaktujte nás</h2>
+
+
             <form style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-top: 1.5rem;" method="POST" action="#">
                 @csrf
                 <label>Jméno</label>
